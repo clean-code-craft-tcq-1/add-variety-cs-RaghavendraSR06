@@ -12,11 +12,7 @@ namespace TypewiseAlert
             {
                 return BreachType.TooLow;
             }
-            if (value > upperLimit)
-            {
-                return BreachType.TooHigh;
-            }
-            return BreachType.Normal;
+            return value > upperLimit ? BreachType.TooHigh : BreachType.Normal;
         }
 
         public static BreachType ClassifyTemperatureBreach(CoolingType coolingType, double temperatureInC)
