@@ -5,9 +5,9 @@ namespace TypewiseAlert
 {
     public class BMSTypeAlert
     {   
-        public static void CheckAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperature)
+        public static void CheckAndAlert(AlertTarget alertTarget, Battery batteryChar, double temperature)
         {
-            BreachType breachType = CheckBreachLevel.ClassifyTemperatureBreach(batteryChar.coolingType, temperature);
+            BreachType breachType = CheckBreachLevel.ClassifyTemperatureBreach(batteryChar.CoolingType, temperature);
             IAlerter source = BMSInstanceCreator.GetInstance(alertTarget.ToString()) as IAlerter;
             source.Alert(breachType);
         }
