@@ -8,12 +8,7 @@ namespace TypewiseAlert
             TooLow,
             TooHigh
         };
-
-        public struct BatteryCharacter
-        {
-            public CoolingType coolingType;           
-        }
-
+        
         public enum CoolingType
         {
             PassiveCooling,
@@ -23,8 +18,9 @@ namespace TypewiseAlert
 
         public enum AlertTarget
         {
-            ToController,
-            ToEmail
+            ControllerAlert,
+            EmailAlert,
+            ConsoleAlert
         };
     }
 }
