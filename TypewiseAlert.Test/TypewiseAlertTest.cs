@@ -41,33 +41,15 @@ namespace TypewiseAlert.Test
               BMSConstants.BreachType.Normal);
         }
 
-        [Fact]
-        public void EmailAlertTest()
-        {
-            var test = new Battery(BMSConstants.CoolingType.PassiveCooling,"test");
-            BMSTypeAlert.CheckAndAlert(BMSConstants.AlertTarget.EmailAlert, test, 24);
-        }
-
-        [Fact]
-        public void ControllerAlertTest()
-        {
-            var test = new Battery(BMSConstants.CoolingType.PassiveCooling, "test");
-            BMSTypeAlert.CheckAndAlert(BMSConstants.AlertTarget.ControllerAlert, test, 24);
-        }
-
-        [Fact]
-        public void ConsoleAlertTest()
-        {
-            var test = new Battery(BMSConstants.CoolingType.PassiveCooling, "test");
-            BMSTypeAlert.CheckAndAlert(BMSConstants.AlertTarget.ConsoleAlert, test, 24);
-        }
 
         [Fact]
         public void FakeAlertTest()
         {
             var test = new Battery(BMSConstants.CoolingType.PassiveCooling, "test");
-            BMSTypeAlert.CheckAndAlert(BMSConstants.AlertTarget.ConsoleAlert, test, 24);
-            Assert.True(ConsoleAlert.IsNotified);
+            BMSTypeAlert alert = new BMSTypeAlert("FakeAlert");
+            alert.CheckAndAlert(test, 24);
+            FakeAlert notify = alert.AlertSource as FakeAlert;
+            Assert.True(notify.ExecutedAtLeastOnce);
         }
     }
 }
