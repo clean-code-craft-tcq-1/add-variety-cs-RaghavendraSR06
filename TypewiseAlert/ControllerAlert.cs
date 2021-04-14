@@ -5,7 +5,7 @@ namespace TypewiseAlert
 {
     class ControllerAlert : IAlerter
     {
-        public bool IsNotified = false;
+       
         public void Alert(BreachType breachType)
         {
             string recepient = "a.b@c.com";
@@ -16,7 +16,6 @@ namespace TypewiseAlert
         {
             Console.WriteLine($"To: {recepient}\n");
             Console.WriteLine($"Hi, the temperature is {breachType}\n");
-            IsNotified = true;
         }
     }
 }
